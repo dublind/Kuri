@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Perfil - PaseaPerros{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">
+                    <i class="fas fa-user me-2"></i>Mi Perfil
+                </h3>
+            </div>
+            <div class="card-body">
+                {% if usuario %}
+                <div class="row">
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="mb-3">
+                            <i class="fas fa-user-circle fa-5x text-primary"></i>
+                        </div>
+                        <h4>{{ usuario[1] }} {{ usuario[2] }}</h4>
+                        <p class="text-muted">Usuario desde hoy</p>
+                    </div>
+                    <div class="col-md-8">
+                        <h5 class="mb-3">Información Personal</h5>
+                        <div class="row mb-3">
+                            <div class="col-sm-4">
+                                <strong><i class="fas fa-user me-2"></i>Nombre:</strong>
+                            </div>
+                            <div class="col-sm-8">
+                                {{ usuario[1] }}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-4">
+                                <strong><i class="fas fa-user me-2"></i>Apellido Paterno:</strong>
+                            </div>
+                            <div class="col-sm-8">
+                                {{ usuario[2] }}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-4">
+                                <strong><i class="fas fa-user me-2"></i>Apellido Materno:</strong>
+                            </div>
+                            <div class="col-sm-8">
+                                {{ usuario[3] }}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-4">
+                                <strong><i class="fas fa-envelope me-2"></i>Correo:</strong>
+                            </div>
+                            <div class="col-sm-8">
+                                {{ usuario[4] }}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-4">
+                                <strong><i class="fas fa-phone me-2"></i>Teléfono:</strong>
+                            </div>
+                            <div class="col-sm-8">
+                                {{ usuario[5] }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                
+                <div class="text-center mt-4">
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-primary">
+                        <i class="fas fa-arrow-left me-2"></i>Volver al Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

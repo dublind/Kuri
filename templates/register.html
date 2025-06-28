@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Registrarse - PaseaPerros{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    <i class="fas fa-user-plus fa-3x text-primary"></i>
+                    <h2 class="card-title mt-3">Crear Cuenta</h2>
+                </div>
+                
+                <form method="POST">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="nombre" class="form-label">
+                                <i class="fas fa-user me-2"></i>Nombre
+                            </label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="apellido_p" class="form-label">
+                                <i class="fas fa-user me-2"></i>Apellido Paterno
+                            </label>
+                            <input type="text" class="form-control" id="apellido_p" name="apellido_p" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="apellido_m" class="form-label">
+                            <i class="fas fa-user me-2"></i>Apellido Materno
+                        </label>
+                        <input type="text" class="form-control" id="apellido_m" name="apellido_m" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">
+                            <i class="fas fa-envelope me-2"></i>Correo Electrónico
+                        </label>
+                        <input type="email" class="form-control" id="correo" name="correo" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">
+                            <i class="fas fa-phone me-2"></i>Teléfono
+                        </label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="contrasella" class="form-label">
+                            <i class="fas fa-lock me-2"></i>Contraseña
+                        </label>
+                        <input type="password" class="form-control" id="contrasella" name="contrasella" required>
+                    </div>
+                    
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-user-plus me-2"></i>Registrarse
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="text-center mt-3">
+                    <small class="text-muted">
+                        ¿Ya tienes cuenta? 
+                        <a href="{{ url_for('login') }}" class="text-decoration-none">
+                            Inicia sesión aquí
+                        </a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

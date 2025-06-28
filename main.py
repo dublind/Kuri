@@ -28,14 +28,15 @@ def guardar_datos_usuarios(nombre, apellido_p, apellido_m, correo, telefono, con
     })
     conexion.commit()
     cursor.close()
-def pagos(id_usuario, tipo_paseo):
+def pagos(id_usuario, monto):
     cursor = conexion.cursor()
     cursor.execute("""
-        INSERT INTO pagos (usuario_id, tipo_paseo)
-        VALUES (:usuario_id, :tipo_paseo)
+        INSERT INTO pagos (usuario_id, fecha, monto)
+        VALUES (:usuario_id, :fecha, :monto)
     """, {
         'usuario_id': id_usuario,
-        'tipo_paseo': tipo_paseo
+        'fecha': date.today(),
+        'monto': monto
     })
     conexion.commit()
     cursor.close()
@@ -73,20 +74,21 @@ while menu:
                 opcion_submenu = input()
                 if opcion_submenu == "1":
                     print("¡Vamos a pasear a tu perro! 🐕")
-                    time.sleep(1)
                     print("Recuerda entregarnos a tu perro con correa para el paseo!.")
+                    time.sleep(2)
                     print("cual es el nombre de tu perro?")
                     nombre_perro = input()
                     cursor = conexion.cursor()
                     cursor.execute("""
-                        SeLECT * FROM perros WHERE nombre = :nombre_perro
+                        SELECT * FROM perros WHERE Nombre = :nombre_perro and usuario_id = :usuario_id
                     """, {
                         'nombre_perro': nombre_perro
+                        , 'usuario_id': usuario_encontrado[0]
                     })
-                    perro_encontrado = cursor.fetchone()
+                    perro_encontrado = cursor.fetchone() # Buscar perro por nombre, si existe el perro es true y si no es false
                     cursor.close()
                     if perro_encontrado:
-                        print(f"Tu perro {perro_encontrado[1]} está listo para el paseo!")
+                        print(f"{usuario_encontrado[1]} {usuario_encontrado[2]} Tu perro {perro_encontrado[1]} está listo para el paseo!")
                         #creacion de un submenu de precios de paseos
                         print("Seleccione el tipo de paseo:")
                         print("1. Paseo corto (30 minutos) - $10")
@@ -140,6 +142,7 @@ while menu:
                     time.sleep(1)
         else:
             print("Nombre de usuario o contraseña incorrectos.")
+            time.sleep(1)
     elif opcion == "2":
         print("Ingrese su nombre:")
         nombre = input()
@@ -160,3 +163,5 @@ while menu:
         menu = False
     else:
         print("Opción no válida. Por favor, intente de nuevo.")
+conexion.close()
+print("Conexión a la base de datos cerrada.")

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card">
+            <div class="card-body text-center py-5">
+                <div class="mb-4">
+                    <i class="fas fa-dog fa-5x text-primary"></i>
+                </div>
+                <h1 class="card-title mb-4">🐕 KURI</h1>
+                <p class="card-text mb-4 text-muted">
+                    La mejor aplicación para el cuidado y paseo de tu mascota. 
+                    Conecta con paseadores profesionales y mantén a tu perro feliz y saludable.
+                </p>
+                <div class="d-grid gap-3">
+                    <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-sign-in-alt me-2"></i>Iniciar Sesión
+                    </a>
+                    <a href="{{ url_for('register') }}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-user-plus me-2"></i>Registrarse
+                    </a>
+                </div>
+                <div class="mt-4">
+                    <small class="text-muted">
+                        <i class="fas fa-shield-alt me-1"></i>
+                        Servicio seguro y confiable
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4 mb-3">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fas fa-walking fa-3x text-primary mb-3"></i>
+                <h5 class="card-title">Paseos Profesionales</h5>
+                <p class="card-text">Paseadores certificados para el cuidado de tu mascota</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fas fa-clock fa-3x text-primary mb-3"></i>
+                <h5 class="card-title">Horarios Flexibles</h5>
+                <p class="card-text">Elige el horario que mejor se adapte a tu rutina</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fas fa-heart fa-3x text-primary mb-3"></i>
+                <h5 class="card-title">Cuidado Amoroso</h5>
+                <p class="card-text">Tu perro recibirá todo el amor y atención que merece</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

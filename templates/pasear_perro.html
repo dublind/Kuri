@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Pasear Perro - PaseaPerros{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">
+                    <i class="fas fa-walking me-2"></i>Pasear a {{ perro[1] }}
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 text-center mb-4">
+                        <i class="fas fa-dog fa-5x text-primary mb-3"></i>
+                        <h4>{{ perro[1] }}</h4>
+                        <p class="text-muted">
+                            <strong>Raza:</strong> {{ perro[2] }}<br>
+                            <strong>Edad:</strong> {{ perro[3] }} años<br>
+                            <strong>Peso:</strong> {{ perro[4] }} kg
+                        </p>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <strong>¡Importante!</strong> Recuerda entregarnos a tu perro con correa para el paseo.
+                        </div>
+                        
+                        <h5 class="mb-3">Selecciona el tipo de paseo:</h5>
+                        
+                        <form method="POST" action="{{ url_for('procesar_pago') }}">
+                            <input type="hidden" name="perro_id" value="{{ perro[0] }}">
+                            
+                            <div class="mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="tipo_paseo" 
+                                                   id="paseo1" value="1" required>
+                                            <label class="form-check-label" for="paseo1">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <strong>Paseo Corto</strong><br>
+                                                        <small class="text-muted">30 minutos de ejercicio</small>
+                                                    </div>
+                                                    <span class="badge bg-primary fs-6">$10</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="tipo_paseo" 
+                                                   id="paseo2" value="2" required>
+                                            <label class="form-check-label" for="paseo2">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <strong>Paseo Largo</strong><br>
+                                                        <small class="text-muted">1 hora completa de actividad</small>
+                                                    </div>
+                                                    <span class="badge bg-primary fs-6">$20</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="tipo_paseo" 
+                                                   id="paseo3" value="3" required>
+                                            <label class="form-check-label" for="paseo3">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <strong>Paseo Especial</strong><br>
+                                                        <small class="text-muted">2 horas de ejercicio y juego</small>
+                                                    </div>
+                                                    <span class="badge bg-primary fs-6">$30</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="fas fa-credit-card me-2"></i>Confirmar y Pagar
+                                </button>
+                                <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">
+                                    <i class="fas fa-arrow-left me-2"></i>Volver
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
