@@ -1,0 +1,184 @@
+/* Componentes reutilizables */
+
+/* Botones personalizados */
+.btn-gradient {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    color: white;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(45deg, #764ba2, #667eea);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    color: white;
+}
+
+.btn-outline-gradient {
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(45deg, #667eea, #764ba2) border-box;
+    color: #667eea;
+    border-radius: 25px;
+    padding: 10px 28px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-gradient:hover {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Tarjetas especiales */
+.card-hover {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.card-glass {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Inputs con estilo */
+.input-group-custom {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.input-group-custom input {
+    border: none;
+    border-bottom: 2px solid #e0e0e0;
+    border-radius: 0;
+    background: transparent;
+    padding: 12px 0;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.input-group-custom input:focus {
+    border-bottom-color: #667eea;
+    box-shadow: none;
+    outline: none;
+}
+
+.input-group-custom label {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    color: #999;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-group-custom input:focus + label,
+.input-group-custom input:not(:placeholder-shown) + label {
+    top: -20px;
+    font-size: 12px;
+    color: #667eea;
+    font-weight: 600;
+}
+
+/* Badges personalizados */
+.badge-gradient {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+/* Iconos con fondo */
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 auto 1rem;
+}
+
+.icon-circle-lg {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+}
+
+/* Separadores */
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #667eea, transparent);
+    margin: 2rem 0;
+}
+
+/* Efectos de hover para listas */
+.list-hover li {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.list-hover li:hover {
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateX(10px);
+    padding-left: 1rem;
+}
+
+/* Navegación breadcrumb personalizada */
+.breadcrumb-custom {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 12px 20px;
+    margin-bottom: 2rem;
+}
+
+.breadcrumb-custom .breadcrumb-item + .breadcrumb-item::before {
+    content: "›";
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* Tooltips personalizados */
+.tooltip-custom {
+    position: relative;
+    cursor: help;
+}
+
+.tooltip-custom::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    font-size: 14px;
+    z-index: 1000;
+}
+
+.tooltip-custom:hover::after {
+    opacity: 1;
+}
